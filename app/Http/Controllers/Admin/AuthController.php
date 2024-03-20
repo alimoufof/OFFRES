@@ -8,6 +8,10 @@ use App\Http\Requests\PasswordRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\UpdateRegisterRequest;
 use App\Models\Admin;
+use App\Models\Departement;
+use App\Models\Domaine;
+use App\Models\Entreprise;
+use App\Models\Offre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -15,11 +19,12 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Request as FacadesRequest;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 
 class AuthController extends Controller
 {
     // Retourne la page d'inscription
-    public function index()
+    public function index(): View
     {
         return view('admin.auth.register');
     }
@@ -46,7 +51,7 @@ class AuthController extends Controller
         return view('admin.auth.login');
     }
 
-    // Permet de s'authentifier 
+    // Permet de s'authentifier
     public function singIn(Request $request)
     {
         request()->validate([
@@ -60,7 +65,7 @@ class AuthController extends Controller
                 ->only('email', 'password');
             if (Auth::guard('admin')->attempt($credentials)) {
                 //redireger sur son tableau de bord
-                return redirect()->route('home');
+                return redirect()->route('dashboard.index');
             } else {
                 return back()->with('errorConnection', "Email ou mot de passe incorrect");
             }

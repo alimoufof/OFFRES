@@ -15,7 +15,6 @@
                         </div>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-
                 </div>
             </a>
             <div class="dropdown-menu dropdown-menu-end">
@@ -50,14 +49,14 @@
             </div>
         </div>
         <ul class="metismenu" id="menu">
-            <li><a href="javascript:void()" aria-expanded="false">
+            <li><a href="{{ route('dashboard.home') }}" aria-expanded="false">
                     <i class="flaticon-025-dashboard"></i>
                     <span class="nav-text">Tableau de bord</span>
                 </a>
             </li>
             <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-093-waving"></i>
-                    <span class="nav-text">Pages</span>
+                    <span class="nav-text">Paramètres</span>
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="{{ route('departement.index') }}">Départements</a></li>
@@ -71,7 +70,7 @@
             </li>
         </ul>
         <div class="plus-box">
-            <p class="fs-14 font-w600 mb-2 text-center">WALLY</p>
+            <p class="fs-14 font-w600 mb-2 text-center">WALY</p>
             <p class="plus-box-p text-center">© {{ date('Y') }} All Rights Reserved</p>
             <p class="plus-box-p text-center"> Développé <span class="heart"></span> par Groupe 27</p>
         </div>

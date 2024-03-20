@@ -12,7 +12,7 @@
     <div class="content-body " style="">
         <div class="container-fluid">
             <div class="d-flex align-items-center mb-4">
-                <h3 class="mb-0 me-auto">Edition du Profile de l'Administrateur</h3>
+                <h3 class="mb-0 me-auto">Edition du Profile de l’Administrateur</h3>
                 <div>
                     <a href="javascript:void(0);" class="icon-btn me-3"> <i class="fas fa-envelope"></i></a>
                     <a href="javascript:void(0);" class="icon-btn me-3"><i class="fas fa-phone-alt"></i></a>
@@ -32,10 +32,10 @@
                                             @csrf
                                             @method('PUT')
                                             <div class="author-media">
-                                                <img src="{{ empty($admin->avatar) ? asset('storage/avatars/default1.jpg') : asset('storage/'.$admin->avatar) }}"
+                                                <img src="{{ empty($admin->avatar) ? asset('storage/avatars/AvatarMaker.png') : asset('storage/'.$admin->avatar) }}"
                                                 class="img-fluid rounded-circle" width="100" height="100" alt="">                                                <div class="upload-link" title="" data-bs-toggle="tooltip"
                                                     data-placement="right" data-original-title="update">
-                                                    <input type="file" class="update-flie" name="avatar"
+                                                    <input type="file" class="update-file" name="avatar"
                                                         id="imageInput">
                                                     <i class="fa fa-camera"></i>
                                                 </div>

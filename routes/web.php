@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\accueilPhoto;
 use App\Http\Controllers\Admin\accueilPhotoController;
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\OffreController;
@@ -24,9 +25,7 @@ use App\Http\Controllers\Admin\AdminController as AdminController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth');
 
 Route::get('/login', function () {
     return view('auth.login');
@@ -41,7 +40,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/login', 'singIn')->name('singIn');
     // Deconnexion
     Route::get('/logout', 'logout')->name('logout');
-    // Le profile
+    // Profilea
     Route::get('profile', 'show')->name('profile.show');
     Route::get('profile/{admin}/edit', 'edit')->name('profile.edit');
     Route::put('profile/{admin}', 'update')->name('profile.update');
@@ -50,6 +49,10 @@ Route::controller(AuthController::class)->group(function () {
     Route::put('edit-password/{admin}', 'update_password')->name('editPassword.update');
     // Changement de la photo de profile
     Route::put('change-avatar/{admin}', 'changeAvatar')->name('change.avatar');
+
+    Route::get('dashboard', 'index')->name('dashboard.home');
+
+
 });
 
 

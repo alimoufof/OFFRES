@@ -25,6 +25,7 @@ class Offre extends Model
         'admin_id',
     ];
 
+
     public function typeoffre()
     {
         return $this->belongsTo(TypeOffre::class, 'type_offre_id');

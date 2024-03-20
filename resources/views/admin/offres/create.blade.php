@@ -7,7 +7,7 @@
 <!--**********************************
     Content body start
 ***********************************-->
-@section('content')	
+@section('content')
     <div class="content-body " style="">
 		<div class="container-fluid">
 	        <div class="d-flex align-items-center mb-4">
@@ -29,7 +29,7 @@
                                 @method('POST')
                                 <div class="row">
                                     <div class="col-xl-6  col-md-6 mb-4">
-                                        <label for="titre" class="form-label">Titre 
+                                        <label for="titre" class="form-label">Titre
                                             <span class="text-danger scale5 ms-2">*</span>
                                         </label>
                                         <input type="text" class="form-control @error('titre') is-invalid @enderror solid" name="titre" id="titre" placeholder="Titre offre" aria-label="name" value="{{ old('titre') }}">
@@ -58,7 +58,7 @@
                                     </div>
 
                                     <div class="col-xl-6  col-md-6 mb-4">
-                                        <label for="departement_id" class="form-label">Département 
+                                        <label for="departement_id" class="form-label">Département
                                             <span class="text-danger scale5 ms-2">*</span>
                                         </label>
                                         <select name="departement_id" id="departement_id" class="form-control @error('departement_id') is-invalid @enderror solid" aria-label="name">
@@ -75,7 +75,7 @@
                                     </div>
 
                                     <div class="col-xl-6  col-md-6 mb-4">
-                                        <label for="domaine_id" class="form-label">Domaine 
+                                        <label for="domaine_id" class="form-label">Domaine
                                             <span class="text-danger scale5 ms-2">*</span>
                                         </label>
                                         <select name="domaine_id" id="domaine_id" class="form-control @error('domaine_id') is-invalid @enderror solid" aria-label="name">
@@ -92,7 +92,7 @@
                                     </div>
 
                                     <div class="col-xl-6  col-md-6 mb-4">
-                                        <label for="entreprise_id" class="form-label">Entreprise 
+                                        <label for="entreprise_id" class="form-label">Entreprise
                                             <span class="text-danger scale5 ms-2">*</span>
                                         </label>
                                         <select name="entreprise_id" id="entreprise_id" class="form-control @error('entreprise_id') is-invalid @enderror solid" aria-label="name">
@@ -109,7 +109,7 @@
                                     </div>
 
                                     <div class="col-xl-6  col-md-6 mb-4">
-                                        <label for="lieu" class="form-label">Lieu 
+                                        <label for="lieu" class="form-label">Lieu
                                             <span class="text-danger scale5 ms-2">*</span>
                                         </label>
                                         <input type="text" class="form-control @error('lieu') is-invalid @enderror solid" name="lieu" id="lieu" placeholder="Lieu offre" aria-label="name" value="{{ old('lieu') }}">
@@ -121,7 +121,7 @@
                                     </div>
 
                                     <div class="col-xl-6  col-md-6 mb-4">
-                                        <label for="salaire" class="form-label">Salaire 
+                                        <label for="salaire" class="form-label">Salaire
                                             <span class="text-danger scale5 ms-2">*</span>
                                         </label>
                                         <input type="number" class="form-control @error('salaire') is-invalid @enderror solid" name="salaire" id="salaire" placeholder="Salaire offre" aria-label="name" value="{{ old('salaire') }}">
@@ -133,7 +133,7 @@
                                     </div>
 
                                     <div class="col-xl-6  col-md-6 mb-4">
-                                        <label for="date_debut" class="form-label">Date début 
+                                        <label for="date_debut" class="form-label">Date début
                                             <span class="text-danger scale5 ms-2">*</span>
                                         </label>
                                         <input type="date" class="form-control @error('date_debut') is-invalid @enderror solid" name="date_debut" id="date_debut" placeholder="Nom offre" aria-label="name" value="{{ old('date_debut') }}">
@@ -145,7 +145,7 @@
                                     </div>
 
                                     <div class="col-xl-6  col-md-6 mb-4">
-                                        <label for="date_fin" class="form-label">Date fin 
+                                        <label for="date_fin" class="form-label">Date fin
                                             <span class="text-danger scale5 ms-2">*</span>
                                         </label>
                                         <input type="date" class="form-control @error('date_fin') is-invalid @enderror solid" name="date_fin" id="date_fin" placeholder="Nom offre" aria-label="name" value="{{ old('date_fin') }}">
@@ -154,10 +154,9 @@
                                                 {{ $message }}
                                             </span>
                                         @enderror
-                                    </div>
 
                                     <div class="col-xl-6  col-md-6 mb-4">
-                                        <label for="description" class="form-label">Description 
+                                        <label for="description" class="form-label">Description
                                             <span class="text-danger scale5 ms-2">*</span>
                                         </label>
                                         <textarea name="description" id="description"  class="form-control @error('description') is-invalid @enderror solid" placeholder="Description offre" aria-label="name">{{ old('description') }}</textarea>
@@ -169,7 +168,7 @@
                                     </div>
 
                                     <div class="col-xl-6  col-md-6 mb-4">
-                                        <label for="contenu" class="form-label">Contenu 
+                                        <label for="contenu" class="form-label">Contenu
                                             <span class="text-danger scale5 ms-2">*</span>
                                         </label>
                                         <textarea name="contenu" id="contenu"  class="form-control @error('contenu') is-invalid @enderror solid" placeholder="Contenu offre" aria-label="name">{{ old('contenu') }}</textarea>
@@ -179,7 +178,7 @@
                                             </span>
                                         @enderror
                                     </div>
-                                    
+
                                     <div class="col-xl-6  col-md-6 mb-4">
                                         <div class="author-media">
                                             <img src="{{asset('storage/' . $offre->photo)}}" alt="">
@@ -190,25 +189,11 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                     {{-- <div class="col-xl-6">
-            <div class="card">
-                <div class="card-body">
-                    <div class="mb-4">
-                        <h4 class="card-title">Tagging with multi-value select boxes</h4>
-                        <p>Tagging can also be used in multi-value select boxes. In the example below, we set the
-                            <code>multiple="multiple"</code> attribute on a Select2 control that also has
-                            <code>tags: true</code> enabled:</p>
-                    </div>
-
-                    <select id="multi-value-select" style="width:100%;" multiple="multiple">
-                        <option selected="selected">orange</option>
-                        <option>white</option>
-                        <option selected="selected">purple</option>
-                    </select>
-                </div>
-            </div>
-        </div> --}}
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <label for="etat" class="form-check-label">Etat</label>
+                                        <input type="checkbox" class="form-control form-check-input" name="etat" id="etat" aria-label="name" role="switch">
+                                    </div>
                                 </div>
                                 <div class="card-footer text-end">
                                     <div>
@@ -221,7 +206,7 @@
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
 @endsection
 <!--**********************************
     Content body end

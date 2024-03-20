@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nom_domaine');
             $table->boolean('etat')->default(0);
-            $table->foreignId('departement_id')->references('id')->on('departements')->onUpdateCascade('cascade');
+            $table->foreignId('departement_id')->references('id')->on('departements')->onUpdateCascade();
             $table->foreignId('admin_id')->references('id')->on('admins')->onUpdateCascade();
             $table->timestamps();
         });

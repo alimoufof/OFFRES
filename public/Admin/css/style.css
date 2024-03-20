@@ -5,7 +5,7 @@
     Author               : DexignLab
     Author Portfolio     : https://themeforest.net/user/dexignlab/portfolio
 
-    
+
     Table of Sass Contents
 
     1. Abstracts
@@ -15,7 +15,7 @@
         _mixin
         _variable
 
-    2. bootstrap 
+    2. bootstrap
         -Here goes all official bootstrap scss files
 
     3. Global/Base
@@ -15800,7 +15800,7 @@ div, span, ol, ul {
     color: #fff;
     overflow: hidden;
     border: 2px solid #fff; }
-    .author-profile .upload-link .update-flie {
+    .author-profile .upload-link .update-file {
       position: absolute;
       opacity: 0;
       z-index: 0;
@@ -16874,7 +16874,7 @@ div, span, ol, ul {
   .show-pass.active .fa-eye-slash {
     display: none; }
   .show-pass.active .fa-eye {
-    display: inline-block; 
+    display: inline-block;
   }
 
   .show-pass1 {
@@ -23004,7 +23004,7 @@ body > * {
   opacity: 0; }
 
 /* ::-webkit-scrollbar-thumb{
-	background:  rgba(111, 133, 147, 0.0); 
+	background:  rgba(111, 133, 147, 0.0);
 } */
 ::-webkit-scrollbar-thumb {
   background: rgba(111, 133, 147, 0.1); }

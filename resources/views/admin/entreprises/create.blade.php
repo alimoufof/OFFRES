@@ -83,7 +83,7 @@
                                         @enderror
                                     </div>
                                      <div class="col-xl-6  col-md-6 mb-4">
-                                        <label for="description" class="form-label">Entreprise 
+                                        <label for="description" class="form-label">Description 
                                             <span class="text-danger scale5 ms-2">*</span>
                                         </label>
                                         <textarea name="description" id="description" cols="30" rows="10" aria-label="name" class="form-control @error('description') is-invalid @enderror solid" >{{ old('description') }}</textarea>

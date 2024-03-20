@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Departement extends Model
 {
@@ -15,17 +17,17 @@ class Departement extends Model
         'etat'
     ];
 
-    public function domaines()
+    public function domaines(): HasMany
     {
         return $this->hasMany(Domaine::class);
     }
 
-    public function admin()
+    public function admin(): BelongsTo
     {
         return $this->belongsTo(Admin::class, 'admin_id');
     }
 
-    public function offres()
+    public function offres(): HasMany
     {
         return $this->hasMany(Offre::class);
     }

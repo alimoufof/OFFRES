@@ -13,8 +13,8 @@ content body start
             <div class="d-flex align-items-center mb-4 flex-wrap">
                 <h3 class="me-auto">Liste des offres</h3>
                 <div>
-                    <a href="{{ route('offre.create') }}" class="btn btn-primary me-3"><i
-                            class="fas fa-plus me-2"></i>Ajouter une nouvelle offre</a>
+                    <a href="{{ route('offre.create') }}" class="btn btn-primary me-3"><i class="fas fa-plus me-2"></i>Ajouter
+                        une nouvelle offre</a>
                     <a href="javascript:void(0);" class="icon-btn me-3"> <i class="fas fa-envelope"></i></a>
                     <a href="javascript:void(0);" class="icon-btn me-3"><i class="fas fa-phone-alt"></i></a>
                     <a href="javascript:void(0);" class="icon-btn"><i class="fas fa-info"></i></a>
@@ -37,19 +37,12 @@ content body start
                                     <th>Domaine</th>
                                     <th>Entreprise</th>
                                     <th>Lieu</th>
-                                    {{-- <th>Photo</th>
-                                    <th>Salaire</th>
-                                    <th>Date debut</th>
-                                    <th>Date fin</th>
-                                    <th>Description</th>
-                                    <th>Contenu</th> --}}
+                                    <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @if ($offres->isEmpty())
-                                    <p>Aucune offre trouvée</p>
-                                @else                                   
+                                @if (!$offres->isEmpty())
                                     @foreach ($offres as $key => $offre)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
@@ -60,12 +53,27 @@ content body start
                                             <td>{{ $offre->entreprise->nom_entreprise }}</td>
                                             <td>{{ $offre->lieu }}</td>
                                             <td>
+                                                @if ($offre->etat == 1)
+                                                    <span
+                                                        class="badge badge-success bg-success badge-lg text-light">Publié</span>
+                                                @else
+                                                    <span class="badge badge-warning bg-warning badge-lg text-light">Non
+                                                        publié</span>
+                                                @endif
+                                            </td>
+                                            <td>
                                                 <div class="action-buttons d-flex justify-content-end">
-                                                    <a href="{{ route('offre.show', $offre) }}" class="btn btn-success light mr-2">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="svg-main-icon" width="24px" height="24px" viewBox="0 0 32 32" x="0px" y="0px">
+                                                    <a href="{{ route('offre.show', $offre) }}"
+                                                        class="btn btn-success light mr-2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="svg-main-icon"
+                                                            width="24px" height="24px" viewBox="0 0 32 32" x="0px"
+                                                            y="0px">
                                                             <g data-name="Layer 21">
-                                                                <path d="M29,14.47A15,15,0,0,0,3,14.47a3.07,3.07,0,0,0,0,3.06,15,15,0,0,0,26,0A3.07,3.07,0,0,0,29,14.47ZM16,21a5,5,0,1,1,5-5A5,5,0,0,1,16,21Z" fill="#000000" fill-rule="nonzero"></path>
-                                                                <circle cx="16" cy="16" r="3" fill="#000000" fill-rule="nonzero">
+                                                                <path
+                                                                    d="M29,14.47A15,15,0,0,0,3,14.47a3.07,3.07,0,0,0,0,3.06,15,15,0,0,0,26,0A3.07,3.07,0,0,0,29,14.47ZM16,21a5,5,0,1,1,5-5A5,5,0,0,1,16,21Z"
+                                                                    fill="#000000" fill-rule="nonzero"></path>
+                                                                <circle cx="16" cy="16" r="3" fill="#000000"
+                                                                    fill-rule="nonzero">
                                                                 </circle>
                                                             </g>
                                                         </svg>
@@ -84,13 +92,12 @@ content body start
                                                                     fill="#000000" fill-rule="nonzero"
                                                                     transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) ">
                                                                 </path>
-                                                                <rect fill="#000000" opacity="0.3" x="5" y="20" width="15"
-                                                                    height="2" rx="1"></rect>
+                                                                <rect fill="#000000" opacity="0.3" x="5" y="20"
+                                                                    width="15" height="2" rx="1"></rect>
                                                             </g>
                                                         </svg>
                                                     </a>
-                                                    <form action="{{ route('offre.destroy', $offre) }}"
-                                                        method="POST">
+                                                    <form action="{{ route('offre.destroy', $offre) }}" method="POST">
 
                                                         @csrf
                                                         @method('DELETE')
@@ -117,6 +124,8 @@ content body start
                                             </td>
                                         </tr>
                                     @endforeach
+                                @else
+                                    <p>Aucune offre trouvée</p>
                                 @endif
                             </tbody>
                         </table>

@@ -36,7 +36,7 @@
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody class=">
+                            <tbody>
                                 @foreach ($typeoffres as $key => $typeoffre)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>

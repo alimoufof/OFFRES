@@ -22,6 +22,7 @@
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-body">
+                            @dump($errors)
                             <form action="{{ route('offre.update', $offre)}}" method="post" enctype="multipart/form-data">
 
                                 @csrf
@@ -190,6 +191,11 @@
                                         </div>
                                     </div>
                                 </div>
+                                    <div class="form-check form-switch col-xl-6  col-md-6 mb-4">
+                                        <label for="etat" class="form-check-label">Etat</label>
+                                        <input type="checkbox" class="form-control form-check-input" name="etat" id="etat" aria-label="name" role="switch" {{ $offre->etat ? 'checked' : '' }}>
+                                    </div>
+
                                 <div class="card-footer text-end">
                                     <div>
                                         <button type="submit" class="btn btn-primary">Modifier</button>

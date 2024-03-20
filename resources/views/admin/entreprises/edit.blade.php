@@ -22,13 +22,14 @@
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('entreprise.update', $entreprise)}}" method="post">
+                            @dump($errors)
+                            <form action="{{ route('entreprise.update', $entreprise)}}" method="post" enctype="multipart/form-data">
 
                                 @csrf
                                 @method('PUT')
                                 <div class="row">
                                     <div class="col-xl-6  col-md-6 mb-4">
-                                        <label for="nom_entreprise" class="form-label">Entreprise 
+                                        <label for="nom_entreprise" class="form-label">Entreprise
                                             <span class="text-danger scale5 ms-2">*</span>
                                         </label>
                                         <input type="text" class="form-control @error('nom_entreprise') is-invalid @enderror solid" name="nom_entreprise" id="nom_entreprise" placeholder="Nom entreprise" aria-label="name" value="{{ $entreprise->nom_entreprise }}">
@@ -39,7 +40,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-xl-6  col-md-6 mb-4">
-                                        <label for="adresse" class="form-label">Adresse 
+                                        <label for="adresse" class="form-label">Adresse
                                             <span class="text-danger scale5 ms-2">*</span>
                                         </label>
                                         <input type="text" class="form-control @error('adresse') is-invalid @enderror solid" name="adresse" id="adresse" placeholder="Adresse entreprise" aria-label="name" value="{{ $entreprise->adresse }}">
@@ -50,7 +51,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-xl-6  col-md-6 mb-4">
-                                        <label for="contact" class="form-label">Contact 
+                                        <label for="contact" class="form-label">Contact
                                             <span class="text-danger scale5 ms-2">*</span>
                                         </label>
                                         <input type="tel" class="form-control @error('contact') is-invalid @enderror solid" name="contact" id="contact" placeholder="Contact entreprise" aria-label="name" value="{{ $entreprise->contact }}">
@@ -61,7 +62,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-xl-6  col-md-6 mb-4">
-                                        <label for="email" class="form-label">Email 
+                                        <label for="email" class="form-label">Email
                                             <span class="text-danger scale5 ms-2">*</span>
                                         </label>
                                         <input type="email" class="form-control @error('email') is-invalid @enderror solid" name="email" id="email" placeholder="Email entreprise" aria-label="name" value="{{ $entreprise->email }}">
@@ -72,7 +73,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-xl-6  col-md-6 mb-4">
-                                        <label for="site_web" class="form-label">Site web 
+                                        <label for="site_web" class="form-label">Site web
                                             <span class="text-danger scale5 ms-2">*</span>
                                         </label>
                                         <input type="text" class="form-control @error('site_web') is-invalid @enderror solid" name="site_web" id="site_web" placeholder="Site web entreprise" aria-label="name" value="{{ $entreprise->site_web }}">
@@ -83,7 +84,7 @@
                                         @enderror
                                     </div>
                                      <div class="col-xl-6  col-md-6 mb-4">
-                                        <label for="description" class="form-label">Entreprise 
+                                        <label for="description" class="form-label">Entreprise
                                             <span class="text-danger scale5 ms-2">*</span>
                                         </label>
                                         <textarea name="description" id="description" cols="30" rows="10" aria-label="name" class="form-control @error('description') is-invalid @enderror solid" >{{ $entreprise->description }}</textarea>
@@ -109,7 +110,7 @@
                                             @foreach($secteurs as $key => $secteur)
                                               <option value="{{ $key }}" @selected($entreprise->secteurs()->pluck('id')->contains($key))>{{ $secteur }}</option>
                                             @endforeach
-                                        </select>                  
+                                        </select>
                                         @error('secteurs')
                                           <div class="invalid-feedback">
                                               {{ $message }}

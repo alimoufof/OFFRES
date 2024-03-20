@@ -52,6 +52,7 @@ class OffreController extends Controller
         }
 
         $data['admin_id'] = Auth::guard('admin')->user()->id;
+        $data['etat'] = $request->etat == 'on' ? 1 : 0;
         Offre::create($data);
         return redirect()->route('offre.index')->with('success', 'Enregistrement effetué avec succès');
     }
@@ -76,7 +77,7 @@ class OffreController extends Controller
             'typeoffres' => TypeOffre::pluck('nom_typeoffre','id'),
             'departements' => Departement::pluck('nom_departement','id'),
             'domaines' => Domaine::pluck('nom_domaine','id'),
-            'entreprises' => Entreprise::pluck('nom_entreprise','id'),        
+            'entreprises' => Entreprise::pluck('nom_entreprise','id'),
         ]);
     }
 
@@ -98,6 +99,7 @@ class OffreController extends Controller
         }
 
         $data['admin_id'] = Auth::guard('admin')->user()->id;
+        $data['etat'] = $request->etat == 'on' ? 1 : 0;
         $offre->update($data);
         return redirect()->route('offre.index')->with('success', 'Modification effetuée avec succès');
     }
@@ -107,7 +109,7 @@ class OffreController extends Controller
      */
     public function destroy(Offre $offre)
     {
-        if ($offre->photo) 
+        if ($offre->photo)
         {
             Storage::disk('public')->delete($offre->photo);
         }

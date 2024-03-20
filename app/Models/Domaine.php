@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Domaine extends Model
 {
@@ -16,18 +18,24 @@ class Domaine extends Model
         'etat'
     ];
 
-    public function departement()
+    /**
+     * @return BelongsTo
+     */
+    public function departement(): BelongsTo
     {
         return $this->belongsTo(Departement::class, 'departement_id');
     }
 
-    public function admin()
+    /**
+     * @return BelongsTo
+     */
+    public function admin(): BelongsTo
     {
         return $this->belongsTo(Admin::class, 'admin_id');
     }
 
-        public function offres()
-    {
+        public function offres(): HasMany
+        {
         return $this->hasMany(Offre::class);
     }
 }

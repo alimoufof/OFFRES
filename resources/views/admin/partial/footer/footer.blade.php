@@ -5,7 +5,7 @@
 
 <div class="footer">
     <div class="copyright">
-        <p>Copyright © {{ date('Y') }} | WALLY &amp; Developpé par le Groupe 27
+        <p>Copyright © {{ date('Y') }} | WALY &amp; Developpé par le Groupe 27
         </p>
     </div>
 </div> 
